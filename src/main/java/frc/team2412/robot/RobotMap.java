@@ -1,6 +1,8 @@
 package frc.team2412.robot;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
+import com.revrobotics.Rev2mDistanceSensor;
+import com.revrobotics.Rev2mDistanceSensor.Port;
 
 import edu.wpi.first.wpilibj.AnalogInput;
 
@@ -18,7 +20,8 @@ public class RobotMap {
 	public static WPI_TalonFX driveRightMotor = new WPI_TalonFX(DRIVE_RIGHT_MOTOR_ID);
 	
 	public static AnalogInput m_ultrasonic = new AnalogInput(ULTRASONIC_PORT);
-	
+	public static Rev2mDistanceSensor m_tof2mDistance = new Rev2mDistanceSensor(Port.kOnboard);
+
 	// Robot container
 	public static RobotContainer robotContainer = new RobotContainer();
 	

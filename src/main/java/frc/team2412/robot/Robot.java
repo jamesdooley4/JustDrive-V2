@@ -76,6 +76,13 @@ public class Robot extends TimedRobot {
 	public void teleopPeriodic() {
 		double currentDistance = RobotMap.m_ultrasonic.getValue() * ULTRASONIC_SENSOR_TO_INCHES;
 		SmartDashboard.putNumber("Analog port 0 ultrasonic distance value", currentDistance);
+
+		final boolean rangeValid = RobotMap.m_tof2mDistance.isRangeValid();
+		SmartDashboard.putBoolean("2m Distance value", rangeValid);
+		if(rangeValid) {
+			SmartDashboard.putNumber("2m Distance range", RobotMap.m_tof2mDistance.getRange());
+			SmartDashboard.putNumber("2m Distance timestamp", RobotMap.m_tof2mDistance.getTimestamp());
+		  }
 	}
 
 	public void teleopInit() {
