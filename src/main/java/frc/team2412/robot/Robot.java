@@ -8,6 +8,7 @@
 package frc.team2412.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.team2412.robot.Commands.drive;
 
@@ -24,6 +25,10 @@ public class Robot extends TimedRobot {
 
 	private RobotContainer m_robotContainer = RobotMap.robotContainer;
 	private OI m_OI = RobotMap.oi;
+	
+	// factor to convert sensor values to a distance in inches
+	// sensor returns a value from 0-4095 that is scaled to inches
+	private static final double ULTRASONIC_SENSOR_TO_INCHES = 0.125;
 
 	/**
 	 * This function is called once when autonomous is started
@@ -69,6 +74,8 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
+		double currentDistance = RobotMap.m_ultrasonic.getValue() * ULTRASONIC_SENSOR_TO_INCHES;
+		SmartDashboard.putNumber("Analog port 0 ultrasonic distance value", currentDistance);
 	}
 
 	public void teleopInit() {
