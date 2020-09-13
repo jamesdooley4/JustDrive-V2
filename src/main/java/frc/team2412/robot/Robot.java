@@ -55,6 +55,11 @@ public class Robot extends TimedRobot {
 
 	}
 
+	@Override
+	public void disabledInit() {
+		RobotMap.m_tof2mDistance.setEnabled(false);
+	}
+
 	/**
 	 * This function is called every robot packet, no matter the mode. Use this for
 	 * items like diagnostics that you want ran during disabled, autonomous,
@@ -86,6 +91,8 @@ public class Robot extends TimedRobot {
 	}
 
 	public void teleopInit() {
+		RobotMap.m_tof2mDistance.setAutomaticMode(true);
+		RobotMap.m_tof2mDistance.setEnabled(true);
 	}
 
 	/**
