@@ -1,6 +1,11 @@
 plugins {
     id "java"
     id "edu.wpi.first.GradleRIO" version "2021.1.1-beta-4"
+    id "eclipse"
+}
+
+repositories {
+  maven { url 'https://jitpack.io' }
 }
 
 sourceCompatibility = JavaVersion.VERSION_11
@@ -52,7 +57,15 @@ dependencies {
     nativeZip wpi.deps.vendor.jni(wpi.platforms.roborio)
     nativeDesktopZip wpi.deps.vendor.jni(wpi.platforms.desktop)
 
-    testImplementation 'junit:junit:4.12'
+
+	implementation "com.github.Oblarg.Oblog:lib:3.1.0"	
+	implementation 'com.github.Robototes:2412RobotLibrary:2020.07.24'
+
+    testCompile 'junit:junit:4.12'
+	testCompile 'org.mockito:mockito-core:3.2.0'
+	testCompile 'net.bytebuddy:byte-buddy-agent:1.10.3'
+	testCompile 'net.bytebuddy:byte-buddy:1.10.3'
+	testCompile 'org.objenesis:objenesis:2.6'
 
     // Enable simulation gui support. Must check the box in vscode to enable support
     // upon debugging
