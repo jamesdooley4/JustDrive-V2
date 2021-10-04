@@ -1,6 +1,6 @@
 plugins {
     id "java"
-    id "edu.wpi.first.GradleRIO" version "2021.1.2"
+    id "edu.wpi.first.GradleRIO" version "2021.2.2"
     id "eclipse"
 }
 
@@ -59,7 +59,7 @@ dependencies {
 
 
 	implementation "com.github.Oblarg.Oblog:lib:3.1.0"	
-	implementation 'com.github.Robototes:2412RobotLibrary:2020.07.24'
+	implementation 'com.github.Robototes:2412RobotLibrary:2020.08.03'
 
     testCompile 'junit:junit:4.12'
 	testCompile 'org.mockito:mockito-core:3.2.0'
